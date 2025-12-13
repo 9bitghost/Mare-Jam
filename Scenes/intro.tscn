@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://6kmylunqbv8n"]
+[gd_scene load_steps=26 format=3 uid="uid://6kmylunqbv8n"]
 
 [ext_resource type="Script" uid="uid://dq7pjpeh7sv75" path="res://Scripts/intro.gd" id="1_duh1u"]
-[ext_resource type="FontFile" uid="uid://b082i020y7277" path="res://Assets/Intro/Fonts/GrapeSoda.ttf" id="2_alxvg"]
-[ext_resource type="Texture2D" uid="uid://bh7qtk0qfm8oh" path="res://Assets/Intro/Decor/intro_ground.png" id="2_geirw"]
-[ext_resource type="Texture2D" uid="uid://bqump5bbit30t" path="res://Assets/Intro/Decor/bubble.png" id="4_geirw"]
+[ext_resource type="FontFile" uid="uid://cydg6dgvr1dyq" path="res://Assets/Intro/Fonts/GrapeSoda.ttf" id="2_alxvg"]
+[ext_resource type="Texture2D" uid="uid://lkc17uff2qs4" path="res://Assets/Intro/Decor/intro_ground.png" id="2_geirw"]
+[ext_resource type="Texture2D" uid="uid://4fhalbobekd1" path="res://Assets/Intro/Decor/bubble.png" id="4_geirw"]
+[ext_resource type="Texture2D" uid="uid://856sdjrch3g0" path="res://Assets/Intro/Decor/Peixe_basico.png" id="5_hwjxs"]
 
 [sub_resource type="Gradient" id="Gradient_geirw"]
 colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.73260707, 0.97421056, 1)
@@ -12,45 +13,6 @@ colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.732
 gradient = SubResource("Gradient_geirw")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
-
-[sub_resource type="Animation" id="Animation_geirw"]
-resource_name = "Bubble_float"
-length = 5.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bubble3:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(880.25, 480.25003), Vector2(880.25, 450)]
-}
-
-[sub_resource type="Animation" id="Animation_hwjxs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bubble3:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(880.25, 480.25003)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hwjxs"]
-_data = {
-&"Bubble_float": SubResource("Animation_geirw"),
-&"RESET": SubResource("Animation_hwjxs")
-}
 
 [sub_resource type="Animation" id="Animation_rsiac"]
 resource_name = "Bubble_float"
@@ -64,10 +26,34 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(826.25, 298.25), Vector2(826.25, 280), Vector2(826.25, 298.25)]
+"values": [Vector2(1700, 298.25), Vector2(1700, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Bubble6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1311.25, 400), Vector2(1311.25, 350)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Bubble3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1500, 800), Vector2(1500, 780)]
 }
 
 [sub_resource type="Animation" id="Animation_3bmuq"]
@@ -84,128 +70,35 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(826.25, 298.25)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Bubble6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1311.25, 401.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Bubble3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1500, 800)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nn7w8"]
 _data = {
 &"Bubble_float": SubResource("Animation_rsiac"),
 &"RESET": SubResource("Animation_3bmuq")
-}
-
-[sub_resource type="Animation" id="Animation_nn7w8"]
-resource_name = "Bubble_float"
-length = 5.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(989.25, 216.25003), Vector2(989.25, 230), Vector2(989.25, 216.25003)]
-}
-
-[sub_resource type="Animation" id="Animation_b26wi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(989.25, 216.25003)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ewknp"]
-_data = {
-&"Bubble_float": SubResource("Animation_nn7w8"),
-&"RESET": SubResource("Animation_b26wi")
-}
-
-[sub_resource type="Animation" id="Animation_ewknp"]
-resource_name = "Bubble_float"
-length = 5.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(173.25, 417.25), Vector2(173.25, 450)]
-}
-
-[sub_resource type="Animation" id="Animation_a7jvs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(173.25, 417.25)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pgam6"]
-_data = {
-&"Bubble_float": SubResource("Animation_ewknp"),
-&"RESET": SubResource("Animation_a7jvs")
-}
-
-[sub_resource type="Animation" id="Animation_pgam6"]
-resource_name = "Bubble_float"
-length = 5.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(134.24998, 179.24997), Vector2(134.25, 150), Vector2(134.24998, 179.24997)]
-}
-
-[sub_resource type="Animation" id="Animation_itfcf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(134.24998, 179.24997)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8dlr"]
-_data = {
-&"Bubble_float": SubResource("Animation_pgam6"),
-&"RESET": SubResource("Animation_itfcf")
 }
 
 [sub_resource type="Animation" id="Animation_33jql"]
@@ -220,10 +113,34 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(271.5, 325.5), Vector2(271.5, 340), Vector2(271.5, 325.5)]
+"values": [Vector2(359.5, 740.50006), Vector2(359.5, 720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Bubble:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 300), Vector2(500, 280)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Bubble5:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(173.25, 417.25), Vector2(173.25, 450)]
 }
 
 [sub_resource type="Animation" id="Animation_iab25"]
@@ -240,6 +157,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(271.5, 325.5)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Bubble:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(173.25, 417.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Bubble5:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(422.25, 408.24997)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6uv1"]
 _data = {
@@ -247,15 +188,79 @@ _data = {
 &"RESET": SubResource("Animation_iab25")
 }
 
+[sub_resource type="Animation" id="Animation_hwjxs"]
+resource_name = "Peixe"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_nn7w8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b26wi"]
+_data = {
+&"Peixe": SubResource("Animation_hwjxs"),
+&"RESET": SubResource("Animation_nn7w8")
+}
+
 [sub_resource type="Theme" id="Theme_geirw"]
 default_font = ExtResource("2_alxvg")
 default_font_size = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsiac"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwjxs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geirw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsiac"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3bmuq"]
 
 [sub_resource type="Theme" id="Theme_hwjxs"]
 default_font = ExtResource("2_alxvg")
@@ -263,9 +268,10 @@ default_font_size = 60
 Button/colors/font_color = Color(0.9384497, 0.9384497, 0.93844944, 1)
 Button/colors/font_hover_color = Color(0.579747, 0.717101, 0.97589463, 1)
 Button/colors/icon_hover_color = Color(0.5096532, 0.69494766, 0.9747723, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_rsiac")
 Button/styles/hover = SubResource("StyleBoxEmpty_hwjxs")
 Button/styles/normal = SubResource("StyleBoxEmpty_geirw")
-Button/styles/pressed = SubResource("StyleBoxEmpty_rsiac")
+Button/styles/pressed = SubResource("StyleBoxEmpty_3bmuq")
 
 [sub_resource type="Animation" id="Animation_g8dlr"]
 resource_name = "transition_out"
@@ -308,14 +314,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 33.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_duh1u")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1163.0
-offset_bottom = 642.0
+offset_right = 1948.0
+offset_bottom = 1104.0
 texture = SubResource("GradientTexture2D_alxvg")
 
 [node name="Bubbles_Right" type="Control" parent="."]
@@ -323,16 +331,9 @@ anchors_preset = 0
 
 [node name="Bubble3" type="Sprite2D" parent="Bubbles_Right"]
 modulate = Color(1, 1, 1, 0.65882355)
-position = Vector2(880.25, 480.25003)
+position = Vector2(1500, 800)
 scale = Vector2(0.65500027, 0.65500027)
 texture = ExtResource("4_geirw")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubbles_Right/Bubble3"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_hwjxs")
-}
-autoplay = "Bubble_float"
 
 [node name="Bubble4" type="Sprite2D" parent="Bubbles_Right"]
 modulate = Color(1, 1, 1, 0.5254902)
@@ -340,21 +341,16 @@ position = Vector2(826.25, 298.25)
 scale = Vector2(0.9749998, 0.9749998)
 texture = ExtResource("4_geirw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubbles_Right/Bubble4"]
-libraries = {
-&"": SubResource("AnimationLibrary_nn7w8")
-}
-autoplay = "Bubble_float"
-
 [node name="Bubble6" type="Sprite2D" parent="Bubbles_Right"]
 modulate = Color(1, 1, 1, 0.5254902)
-position = Vector2(989.25, 216.25003)
+position = Vector2(1311.25, 401.25)
 scale = Vector2(0.6950004, 0.6950004)
 texture = ExtResource("4_geirw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubbles_Right/Bubble6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubbles_Right"]
+root_node = NodePath("../Bubble4")
 libraries = {
-&"": SubResource("AnimationLibrary_ewknp")
+&"": SubResource("AnimationLibrary_nn7w8")
 }
 autoplay = "Bubble_float"
 
@@ -369,23 +365,11 @@ position = Vector2(173.25, 417.25)
 scale = Vector2(1.0350001, 1.0350001)
 texture = ExtResource("4_geirw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubbles_Left/Bubble"]
-libraries = {
-&"": SubResource("AnimationLibrary_pgam6")
-}
-autoplay = "Bubble_float"
-
 [node name="Bubble5" type="Sprite2D" parent="Bubbles_Left"]
 modulate = Color(1, 1, 1, 0.7176471)
-position = Vector2(134.24998, 179.24997)
+position = Vector2(422.25, 408.24997)
 scale = Vector2(1.0350001, 1.0350001)
 texture = ExtResource("4_geirw")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubbles_Left/Bubble5"]
-libraries = {
-&"": SubResource("AnimationLibrary_g8dlr")
-}
-autoplay = "Bubble_float"
 
 [node name="Bubble2" type="Sprite2D" parent="Bubbles_Left"]
 modulate = Color(1, 1, 1, 0.5254902)
@@ -400,9 +384,22 @@ libraries = {
 autoplay = "Bubble_float"
 
 [node name="IntroGround" type="Sprite2D" parent="."]
-position = Vector2(578.00006, 382.00003)
-scale = Vector2(2.1782362, 1.79)
+position = Vector2(975.25006, 736)
+scale = Vector2(3.6275797, 2.3466663)
 texture = ExtResource("2_geirw")
+
+[node name="PeixeBasico" type="Sprite2D" parent="."]
+position = Vector2(614.00006, 454)
+scale = Vector2(5, 5)
+texture = ExtResource("5_hwjxs")
+flip_h = true
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PeixeBasico"]
+libraries = {
+&"": SubResource("AnimationLibrary_b26wi")
+}
+autoplay = "Peixe"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -454,8 +451,8 @@ text = "sair"
 [node name="black" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 1160.0
-offset_bottom = 656.0
+offset_right = 1944.0
+offset_bottom = 1106.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://k6ydg7d5538j"]
+[gd_scene load_steps=9 format=3 uid="uid://k6ydg7d5538j"]
 
 [ext_resource type="Script" uid="uid://b2su2s38dxhi" path="res://Scripts/story.gd" id="1_pwpkg"]
+[ext_resource type="FontFile" uid="uid://cydg6dgvr1dyq" path="res://Assets/Intro/Fonts/GrapeSoda.ttf" id="2_y0hhn"]
 
 [sub_resource type="Gradient" id="Gradient_duh1u"]
 colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.73260707, 0.97421056, 1)
@@ -9,6 +10,10 @@ colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.732
 gradient = SubResource("Gradient_duh1u")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_lh3an"]
+default_font = ExtResource("2_y0hhn")
+default_font_size = 40
 
 [sub_resource type="Animation" id="Animation_g8dlr"]
 resource_name = "transition_out"
@@ -57,23 +62,65 @@ script = ExtResource("1_pwpkg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1163.0
-offset_bottom = 642.0
+offset_right = 1920.0
+offset_bottom = 1024.0
 texture = SubResource("GradientTexture2D_hd1rp")
-metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 480.0
-offset_right = 1163.0
-offset_bottom = 653.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -964.0
+offset_top = -213.0
+offset_right = 964.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="text_first" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -888.0
+offset_top = -168.0
+offset_right = 920.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_lh3an")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ipsum quis nisi posuere finibus eu vitae tellus. Sed eget lacinia erat, vitae interdum nibh. Integer ullamcorper, ante nec rutrum placerat, risus dui ultrices odio, sed viverra eros nisi quis odio. Etiam in porta ligula. "
+autowrap_mode = 2
+
+[node name="text_second" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -888.0
+offset_top = -168.0
+offset_right = 920.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_lh3an")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac ipsum quis nisi posuere finibus eu vitae tellus. Sed eget lacinia erat, vitae interdum nibh. Integer ullamcorper, ante nec rutrum placerat, risus dui ultrices odio, sed viverra eros nisi quis odio. Etiam in porta ligula. "
+autowrap_mode = 2
 
 [node name="black" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 1160.0
-offset_bottom = 656.0
+offset_right = 1944.0
+offset_bottom = 1088.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
