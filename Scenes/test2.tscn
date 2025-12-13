@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkotigartg315"]
+
+[ext_resource type="PackedScene" uid="uid://jnet4a81httb" path="res://Scenes/test.tscn" id="1_hybjd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 552.0
+offset_bottom = 256.0
+
+[node name="test" parent="." instance=ExtResource("1_hybjd")]
+position = Vector2(248, 136)

@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://k6ydg7d5538j"]
+
+[ext_resource type="Script" uid="uid://b2su2s38dxhi" path="res://Scripts/story.gd" id="1_pwpkg"]
+
+[sub_resource type="Gradient" id="Gradient_duh1u"]
+colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.73260707, 0.97421056, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hd1rp"]
+gradient = SubResource("Gradient_duh1u")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_g8dlr"]
+resource_name = "transition_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b6uv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_et3xt"]
+_data = {
+&"RESET": SubResource("Animation_b6uv1"),
+&"transition_out": SubResource("Animation_g8dlr")
+}
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pwpkg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 642.0
+texture = SubResource("GradientTexture2D_hd1rp")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 480.0
+offset_right = 1163.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 1)
+
+[node name="black" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 656.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_et3xt")
+}
