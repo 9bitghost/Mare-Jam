@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4ut0fcbtth6q"]
+
+[ext_resource type="PackedScene" uid="uid://c7enia63ekpbc" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dqi6vbcdb2ngn" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cj3c1cwi8ppfj" path="res://background.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cw00nmoqcvhs2" path="res://fish.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://ch6v70ffwrxrw" path="res://label.tscn" id="3_lquwl"]
+
+[sub_resource type="Curve2D" id="Curve2D_7mycd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1920, -480, 0, 0, 0, 0, 1920, 448)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1bvp3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1920, 448, 0, 0, 0, 0, -1920, -464)
+}
+point_count = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1bvp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(3868, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(50, 1112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(3864, 1048)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1bvp3")
+fish_scene = ExtResource("2_lquwl")
+alert_scene = ExtResource("3_lquwl")
+
+[node name="FishTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="TextureRect" parent="." instance=ExtResource("2_h2yge")]
+offset_left = -1920.0
+offset_top = -540.0
+offset_right = 1920.0
+offset_bottom = 540.0
+
+[node name="StartPosition" type="Marker2D" parent="."]
+
+[node name="FishSpawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7mycd")
+
+[node name="FishSpawnLocation" type="PathFollow2D" parent="FishSpawn"]
+position = Vector2(1920, -480)
+rotation = 1.5707964
+
+[node name="Player" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="FishSpawn2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_1bvp3")
+
+[node name="FishSpawnLocation2" type="PathFollow2D" parent="FishSpawn2"]
+position = Vector2(-1920, 448)
+rotation = -1.5707964
+
+[node name="FishLifetimeTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="EndangerFishTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(8, -540)
+physics_material_override = SubResource("PhysicsMaterial_1bvp3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-6, -28)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1928, 8)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(27, -12)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(0, 584)
+physics_material_override = SubResource("PhysicsMaterial_1bvp3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-6, -28)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-1952, 32)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(15, -12)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="PlayArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2(4, -4)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="RightAlert" parent="." instance=ExtResource("3_lquwl")]
+
+[node name="LeftAlert" parent="." instance=ExtResource("3_lquwl")]
+
+[connection signal="timeout" from="FishTimer" to="." method="_on_fish_timer_timeout"]
+[connection signal="timeout" from="EndangerFishTimer" to="." method="_on_endanger_fish_timer_timeout"]
+[connection signal="body_exited" from="PlayArea" to="." method="_on_play_area_body_exited"]

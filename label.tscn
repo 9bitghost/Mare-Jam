@@ -1,0 +1,18 @@
+[gd_scene load_steps=0 format=3 uid="uid://ch6v70ffwrxrw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -24.0
+offset_right = 114.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 50
+text = "Alerta"
