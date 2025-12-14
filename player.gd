@@ -19,7 +19,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("mouse_left_click"):
 		var fishes_list = fishes_on_range.values()
 		for fish in fishes_list:
-			fish.set_to_healed()
+			if(fish != null):
+				fish.set_to_healed()
 		fishes_on_range.clear()
 			
 
@@ -37,37 +38,25 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y = -speed
 		
-	if velocity.length() > 0:
-		#velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
+	#if velocity.length() == 0:
+#		$Sprite2D/AnimationPlayer.stop()
 		
 	move_and_slide()
 
 		
-	
-	#position += velocity * delta
-	#position.x = clamp(position.x, -screen_size.x, screen_size.x)
-	#position.y = clamp(position.y, -screen_size.y/2, screen_size.y/2)
-
-		
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "swim"
-		$AnimatedSprite2D.flip_v = false
+		#$Sprite2D.flip_v = false
+		$Sprite2D/AnimationPlayer.play("swim")
 		if velocity.x < 0:
-			$AnimatedSprite2D.flip_h = true
+			$Sprite2D.flip_h = true
 			$Area2D/CollisionShapeLeft.disabled = false
 			$Area2D/CollisionShapeRight.disabled = true
 		else:
-			$AnimatedSprite2D.flip_h = false
+			$Sprite2D.flip_h = false
 			$Area2D/CollisionShapeLeft.disabled = true
 			$Area2D/CollisionShapeRight.disabled = false
-			
-		
-	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "swim"
-		$AnimatedSprite2D.flip_v = velocity.y > 0
+
+
 	
 func start(pos):
 	position = pos
@@ -79,12 +68,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	var key = str(body.get_instance_id())
 	var value = body
 	fishes_on_range[key] = value
-	
-	
-
-	
-	# Clamp Y position
-	#position.y = clamp(position.y, 0, screen_size.y)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	var key = str(body.get_instance_id())

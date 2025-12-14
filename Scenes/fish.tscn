@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://btmb8al1ktedh"]
+
+[ext_resource type="Script" uid="uid://c1kaet0y8re5v" path="res://fish.gd" id="1_6ik3a"]
+[ext_resource type="Texture2D" uid="uid://cdfto4uhcl2g8" path="res://art/fish/Peixe_afetado.png" id="2_hgn23"]
+[ext_resource type="Texture2D" uid="uid://bfi6bwgw4uben" path="res://art/fish/Peixe_basico.png" id="6_10mov"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgn23"]
+radius = 51.0
+height = 168.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgn23"]
+atlas = ExtResource("6_10mov")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ik3a"]
+atlas = ExtResource("6_10mov")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oovoc"]
+atlas = ExtResource("2_hgn23")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vtik"]
+atlas = ExtResource("2_hgn23")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oovoc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgn23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ik3a")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oovoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vtik")
+}],
+"loop": true,
+"name": &"swim_endangered",
+"speed": 5.0
+}]
+
+[node name="fish" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_6ik3a")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hgn23")
+
+[node name="RemoveImmunityTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="FishDeathTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_oovoc")
+animation = &"swim_endangered"
+flip_h = true
+
+[connection signal="timeout" from="RemoveImmunityTimer" to="." method="_on_remove_immunity_timer_timeout"]
+[connection signal="timeout" from="FishDeathTimer" to="." method="_on_fish_death_timer_timeout"]
