@@ -12,11 +12,18 @@ signal kill_fish(fish: Fish)
  
 var endangered = false
 var immune = true
+var fish_types = ["fish", "dolphin"]
+var instance_fish_type
 
 var time_elapsed: float = 0.0
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AnimatedSprite2D.play("swim")
+	
+	instance_fish_type = fish_types.pick_random()
+	var animation = "swim" if instance_fish_type == "fish" else "dolphin_swim"
+	$AnimatedSprite2D.play(animation)
+	if instance_fish_type == "dolphin":
+		$CollisionShape2DFish.disabled = true
+		$CollisionShape2DDoplhin.disabled = false
 	$RemoveImmunityTimer.start()
 
 func _integrate_forces(state):
@@ -30,7 +37,8 @@ func _integrate_forces(state):
 	
 func set_to_endangered() -> void:
 	endangered = true
-	$AnimatedSprite2D.play("swim_endangered")
+	var animation = "swim_endangered" if instance_fish_type == "fish" else "dolphin_swim_endangered"	
+	$AnimatedSprite2D.play(animation)
 	$FishDeathTimer.start()
 	
 
@@ -40,7 +48,9 @@ func set_to_healed() -> void:
 		$FishDeathTimer.stop()
 		endangered = false
 		immune = true
-		$AnimatedSprite2D.play("swim")
+		var animation = "swim" if instance_fish_type == "fish" else "dolphin_swim"
+		$CleanFishSFX2D.play()
+		$AnimatedSprite2D.play(animation)
 		$RemoveImmunityTimer.start()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

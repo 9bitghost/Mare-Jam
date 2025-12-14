@@ -1,12 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://btmb8al1ktedh"]
+[gd_scene load_steps=18 format=3 uid="uid://btmb8al1ktedh"]
 
 [ext_resource type="Script" uid="uid://c1kaet0y8re5v" path="res://fish.gd" id="1_6ik3a"]
 [ext_resource type="Texture2D" uid="uid://cdfto4uhcl2g8" path="res://art/fish/Peixe_afetado.png" id="2_hgn23"]
+[ext_resource type="Texture2D" uid="uid://c1h11ck4pqqks" path="res://art/fish/Golfino_basico.png" id="2_jdl8t"]
+[ext_resource type="Texture2D" uid="uid://t2bfyqdfe06q" path="res://art/fish/Golfino_afetado.png" id="3_21uvr"]
 [ext_resource type="Texture2D" uid="uid://bfi6bwgw4uben" path="res://art/fish/Peixe_basico.png" id="6_10mov"]
+[ext_resource type="AudioStream" uid="uid://hsdf2ccva3oe" path="res://Sound/Player/LimparPeixe.wav" id="6_21uvr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgn23"]
-radius = 51.0
-height = 168.0
+radius = 60.0
+height = 186.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csmc7"]
+atlas = ExtResource("2_jdl8t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkfiq"]
+atlas = ExtResource("2_jdl8t")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl3e6"]
+atlas = ExtResource("3_21uvr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clm4a"]
+atlas = ExtResource("3_21uvr")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hgn23"]
 atlas = ExtResource("6_10mov")
@@ -26,6 +45,28 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oovoc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csmc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkfiq")
+}],
+"loop": true,
+"name": &"dolphin_swim",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fl3e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clm4a")
+}],
+"loop": true,
+"name": &"dolphin_swim_endangered",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hgn23")
@@ -49,6 +90,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jdl8t"]
+radius = 24.0
+height = 68.0
+
 [node name="fish" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 0
@@ -57,10 +102,11 @@ lock_rotation = true
 script = ExtResource("1_6ik3a")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2DDoplhin" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_hgn23")
+disabled = true
 
 [node name="RemoveImmunityTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -68,13 +114,21 @@ wait_time = 5.0
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="FishDeathTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_oovoc")
 animation = &"swim_endangered"
+frame_progress = 0.9660725
 flip_h = true
+
+[node name="CollisionShape2DFish" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jdl8t")
+
+[node name="CleanFishSFX2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_21uvr")
 
 [connection signal="timeout" from="RemoveImmunityTimer" to="." method="_on_remove_immunity_timer_timeout"]
 [connection signal="timeout" from="FishDeathTimer" to="." method="_on_fish_death_timer_timeout"]

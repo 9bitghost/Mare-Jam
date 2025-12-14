@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cusf6ayc4n3gx"
+path="res://.godot/imported/oldlove.mp3-6a813a00e9ab35b3e6a147bbb39ed7e2.mp3str"
+
+[deps]
+
+source_file="res://Sound/Musica/Derrota/oldlove (derrota)/oldlove.mp3"
+dest_files=["res://.godot/imported/oldlove.mp3-6a813a00e9ab35b3e6a147bbb39ed7e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

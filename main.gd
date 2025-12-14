@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 func _on_fish_timer_timeout() -> void:
 	if(fishes.size() > 10):
 		return;
+		
 	var fish = fish_scene.instantiate()
 	var fish_spawn_location
 	var direction 
@@ -69,15 +70,13 @@ func new_game():
 	var screen_size = $Player/Camera2D.get_screen_center_position()
 	$LifeCounter.position.x = screen_size.x + 860
 	$LifeCounter.position.y = -600
-	$LifeCounter/Label.text = 'Vidas %d' %lives
+	$LifeCounter/Label.text = 'Vidas: %d' %lives
 	$Player.start($StartPosition.position)
 	$FishTimer.start()
 	$EndangerFishTimer.start()
 	$RightAlert.visible = false
 	$LeftAlert.visible = false
-
-
-	
+	$LevelMusic.play()
 	
 
 #func _on_fish_lifetime_timer_timeout() -> void:
@@ -106,6 +105,7 @@ func _on_kill_fish(fish: Fish) -> void:
 		if(fishes[i].get_instance_id() == fish_instance_id):
 			index_to_remove = i
 	if(index_to_remove >= 0):
+		$FishDeathSFX2D.play()
 		fishes.remove_at(index_to_remove)
 		remove_child(fish)
 		fish.queue_free()

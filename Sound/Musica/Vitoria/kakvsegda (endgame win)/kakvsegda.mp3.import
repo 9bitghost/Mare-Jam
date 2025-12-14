@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qv1a1deoydfo"
+path="res://.godot/imported/kakvsegda.mp3-776fc836ae872962018522ae6b2d8562.mp3str"
+
+[deps]
+
+source_file="res://Sound/Musica/Vitoria/kakvsegda (endgame win)/kakvsegda.mp3"
+dest_files=["res://.godot/imported/kakvsegda.mp3-776fc836ae872962018522ae6b2d8562.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
