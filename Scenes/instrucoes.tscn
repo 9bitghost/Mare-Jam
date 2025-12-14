@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc5xus8vkj3qt"]
+
+[ext_resource type="Script" uid="uid://u4rckmydbcb8" path="res://Scripts/instrucoes.gd" id="1_j06ar"]
+[ext_resource type="FontFile" uid="uid://bxdf85hubplpk" path="res://Assets/Intro/Fonts/upheavtt.ttf" id="2_j06ar"]
+
+[sub_resource type="Gradient" id="Gradient_hwjxs"]
+colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.73260707, 0.97421056, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j06ar"]
+gradient = SubResource("Gradient_hwjxs")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1s5y"]
+bg_color = Color(0.10980392, 0.15686275, 0.48235294, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.43137255, 0.7529412, 0.95686275, 1)
+
+[sub_resource type="Theme" id="Theme_dxxdm"]
+Panel/styles/panel = SubResource("StyleBoxFlat_i1s5y")
+
+[sub_resource type="Theme" id="Theme_x3d73"]
+default_font = ExtResource("2_j06ar")
+default_font_size = 60
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j06ar")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1948.0
+offset_bottom = 1104.0
+texture = SubResource("GradientTexture2D_j06ar")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -812.0
+offset_top = -380.0
+offset_right = 812.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_dxxdm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -682.0
+offset_top = -246.0
+offset_right = 682.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_x3d73")
+text = "ajude a salvar a vida marinha!
+
+
+Use WASD para mover
+
+clique nos animais para libertá-los
+
+
+
+pressione enter para começar"
+horizontal_alignment = 1

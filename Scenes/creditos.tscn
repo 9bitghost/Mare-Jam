@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=3 uid="uid://bes6wwgmd2arw"]
+
+[ext_resource type="FontFile" uid="uid://cydg6dgvr1dyq" path="res://Assets/Intro/Fonts/GrapeSoda.ttf" id="1_eml6v"]
+[ext_resource type="Script" uid="uid://3ggtf3tgyfeg" path="res://Scripts/creditos.gd" id="1_ykkye"]
+
+[sub_resource type="Gradient" id="Gradient_geirw"]
+colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.73260707, 0.97421056, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ykkye"]
+gradient = SubResource("Gradient_geirw")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_lpe7s"]
+default_font = ExtResource("1_eml6v")
+default_font_size = 100
+
+[sub_resource type="Theme" id="Theme_ompal"]
+default_font = ExtResource("1_eml6v")
+default_font_size = 60
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsiac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwjxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geirw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3bmuq"]
+
+[sub_resource type="Theme" id="Theme_yyntd"]
+default_font = ExtResource("1_eml6v")
+default_font_size = 60
+Button/colors/font_color = Color(0.9384497, 0.9384497, 0.93844944, 1)
+Button/colors/font_hover_color = Color(0.579747, 0.717101, 0.97589463, 1)
+Button/colors/icon_hover_color = Color(0.5096532, 0.69494766, 0.9747723, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_rsiac")
+Button/styles/hover = SubResource("StyleBoxEmpty_hwjxs")
+Button/styles/normal = SubResource("StyleBoxEmpty_geirw")
+Button/styles/pressed = SubResource("StyleBoxEmpty_3bmuq")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ykkye")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1948.0
+offset_bottom = 1104.0
+texture = SubResource("GradientTexture2D_ykkye")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.0
+offset_top = 54.0
+offset_right = 169.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme = SubResource("Theme_lpe7s")
+text = "Créditos"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 448.0
+offset_top = 246.0
+offset_right = -992.0
+offset_bottom = 658.0
+grow_horizontal = 2
+theme = SubResource("Theme_ompal")
+text = "Gameplay
+UI/UX
+Arte
+Som
+
+Fontes"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1008.0
+offset_top = 246.0
+offset_right = -160.0
+offset_bottom = 658.0
+grow_horizontal = 2
+theme = SubResource("Theme_ompal")
+text = "Ágata
+Remi
+Karen
+Vitória
+
+Grape Soda by jeti
+Upheaval by Ænigma
+"
+
+[node name="voltar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -93.0
+offset_right = 75.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_yyntd")
+text = "voltar"
+
+[connection signal="pressed" from="voltar" to="." method="_on_voltar_pressed"]

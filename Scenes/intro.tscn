@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://6kmylunqbv8n"]
+[gd_scene load_steps=29 format=3 uid="uid://6kmylunqbv8n"]
 
 [ext_resource type="Script" uid="uid://dq7pjpeh7sv75" path="res://Scripts/intro.gd" id="1_duh1u"]
 [ext_resource type="FontFile" uid="uid://cydg6dgvr1dyq" path="res://Assets/Intro/Fonts/GrapeSoda.ttf" id="2_alxvg"]
@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://4fhalbobekd1" path="res://Assets/Intro/Decor/bubble.png" id="4_geirw"]
 [ext_resource type="Texture2D" uid="uid://856sdjrch3g0" path="res://Assets/Intro/Decor/Peixe_basico.png" id="5_hwjxs"]
 
-[sub_resource type="Gradient" id="Gradient_geirw"]
+[sub_resource type="Gradient" id="Gradient_hwjxs"]
 colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.73260707, 0.97421056, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_alxvg"]
-gradient = SubResource("Gradient_geirw")
+gradient = SubResource("Gradient_hwjxs")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
@@ -29,7 +29,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1700, 298.25), Vector2(1700, 320)]
+"values": [Vector2(1700, 250), Vector2(1700, 300)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -41,7 +41,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1311.25, 400), Vector2(1311.25, 350)]
+"values": [Vector2(1311.25, 350), Vector2(1311.25, 300)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -128,7 +128,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(500, 300), Vector2(500, 280)]
+"values": [Vector2(500, 200), Vector2(500, 180)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -188,35 +188,6 @@ _data = {
 &"RESET": SubResource("Animation_iab25")
 }
 
-[sub_resource type="Animation" id="Animation_hwjxs"]
-resource_name = "Peixe"
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
 [sub_resource type="Animation" id="Animation_nn7w8"]
 length = 0.001
 tracks/0/type = "value"
@@ -243,11 +214,151 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../peixeRight:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../peixeRight:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hwjxs"]
+resource_name = "swim"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../peixeRight:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../peixeRight:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b26wi"]
 _data = {
-&"Peixe": SubResource("Animation_hwjxs"),
-&"RESET": SubResource("Animation_nn7w8")
+&"RESET": SubResource("Animation_nn7w8"),
+&"swim": SubResource("Animation_hwjxs")
+}
+
+[sub_resource type="Animation" id="Animation_b26wi"]
+resource_name = "position"
+length = 5.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.589263, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(610, 454), Vector2(610, 470), Vector2(610, 454)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../peixeRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.597157),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1350, 550), Vector2(1350, 600)]
+}
+
+[sub_resource type="Animation" id="Animation_ewknp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(610, 454)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../peixeRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1350, 550)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7jvs"]
+_data = {
+&"RESET": SubResource("Animation_ewknp"),
+&"position": SubResource("Animation_b26wi")
 }
 
 [sub_resource type="Theme" id="Theme_geirw"]
@@ -256,11 +367,11 @@ default_font_size = 100
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsiac"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwjxs"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geirw"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3bmuq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nn7w8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b26wi"]
 
 [sub_resource type="Theme" id="Theme_hwjxs"]
 default_font = ExtResource("2_alxvg")
@@ -269,24 +380,9 @@ Button/colors/font_color = Color(0.9384497, 0.9384497, 0.93844944, 1)
 Button/colors/font_hover_color = Color(0.579747, 0.717101, 0.97589463, 1)
 Button/colors/icon_hover_color = Color(0.5096532, 0.69494766, 0.9747723, 1)
 Button/styles/focus = SubResource("StyleBoxEmpty_rsiac")
-Button/styles/hover = SubResource("StyleBoxEmpty_hwjxs")
-Button/styles/normal = SubResource("StyleBoxEmpty_geirw")
-Button/styles/pressed = SubResource("StyleBoxEmpty_3bmuq")
-
-[sub_resource type="Animation" id="Animation_g8dlr"]
-resource_name = "transition_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("black:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+Button/styles/hover = SubResource("StyleBoxEmpty_3bmuq")
+Button/styles/normal = SubResource("StyleBoxEmpty_nn7w8")
+Button/styles/pressed = SubResource("StyleBoxEmpty_b26wi")
 
 [sub_resource type="Animation" id="Animation_b6uv1"]
 length = 0.001
@@ -301,6 +397,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g8dlr"]
+resource_name = "transition_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_et3xt"]
@@ -326,82 +437,112 @@ offset_right = 1948.0
 offset_bottom = 1104.0
 texture = SubResource("GradientTexture2D_alxvg")
 
-[node name="Bubbles_Right" type="Control" parent="."]
+[node name="bubblesRight" type="Control" parent="."]
 anchors_preset = 0
 
-[node name="Bubble3" type="Sprite2D" parent="Bubbles_Right"]
+[node name="Bubble3" type="Sprite2D" parent="bubblesRight"]
 modulate = Color(1, 1, 1, 0.65882355)
+texture_filter = 1
 position = Vector2(1500, 800)
 scale = Vector2(0.65500027, 0.65500027)
 texture = ExtResource("4_geirw")
 
-[node name="Bubble4" type="Sprite2D" parent="Bubbles_Right"]
+[node name="Bubble4" type="Sprite2D" parent="bubblesRight"]
 modulate = Color(1, 1, 1, 0.5254902)
+texture_filter = 1
 position = Vector2(826.25, 298.25)
 scale = Vector2(0.9749998, 0.9749998)
 texture = ExtResource("4_geirw")
 
-[node name="Bubble6" type="Sprite2D" parent="Bubbles_Right"]
+[node name="Bubble6" type="Sprite2D" parent="bubblesRight"]
 modulate = Color(1, 1, 1, 0.5254902)
+texture_filter = 1
 position = Vector2(1311.25, 401.25)
 scale = Vector2(0.6950004, 0.6950004)
 texture = ExtResource("4_geirw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubbles_Right"]
+[node name="bubblesRight" type="AnimationPlayer" parent="bubblesRight"]
 root_node = NodePath("../Bubble4")
 libraries = {
 &"": SubResource("AnimationLibrary_nn7w8")
 }
 autoplay = "Bubble_float"
+speed_scale = 0.7
 
-[node name="Bubbles_Left" type="Control" parent="."]
+[node name="bubblesLeft" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Bubble" type="Sprite2D" parent="Bubbles_Left"]
+[node name="Bubble" type="Sprite2D" parent="bubblesLeft"]
 modulate = Color(1, 1, 1, 0.36862746)
+texture_filter = 1
 position = Vector2(173.25, 417.25)
 scale = Vector2(1.0350001, 1.0350001)
 texture = ExtResource("4_geirw")
 
-[node name="Bubble5" type="Sprite2D" parent="Bubbles_Left"]
+[node name="Bubble5" type="Sprite2D" parent="bubblesLeft"]
 modulate = Color(1, 1, 1, 0.7176471)
+texture_filter = 1
 position = Vector2(422.25, 408.24997)
 scale = Vector2(1.0350001, 1.0350001)
 texture = ExtResource("4_geirw")
 
-[node name="Bubble2" type="Sprite2D" parent="Bubbles_Left"]
+[node name="Bubble2" type="Sprite2D" parent="bubblesLeft"]
 modulate = Color(1, 1, 1, 0.5254902)
+texture_filter = 1
 position = Vector2(271.5, 325.5)
 scale = Vector2(0.72999996, 0.72999996)
 texture = ExtResource("4_geirw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubbles_Left/Bubble2"]
+[node name="bubblesLeft" type="AnimationPlayer" parent="bubblesLeft/Bubble2"]
 libraries = {
 &"": SubResource("AnimationLibrary_b6uv1")
 }
 autoplay = "Bubble_float"
+speed_scale = 0.7
 
 [node name="IntroGround" type="Sprite2D" parent="."]
-position = Vector2(975.25006, 736)
-scale = Vector2(3.6275797, 2.3466663)
+texture_filter = 1
+position = Vector2(972, 736)
+scale = Vector2(3.6772983, 2.3466663)
 texture = ExtResource("2_geirw")
 
-[node name="PeixeBasico" type="Sprite2D" parent="."]
-position = Vector2(614.00006, 454)
+[node name="peixes" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="peixeRight" type="Sprite2D" parent="peixes"]
+texture_filter = 1
+position = Vector2(1350, 550)
+scale = Vector2(5, 5)
+texture = ExtResource("5_hwjxs")
+hframes = 2
+
+[node name="peixeLeft" type="Sprite2D" parent="peixes"]
+texture_filter = 1
+position = Vector2(610, 454)
 scale = Vector2(5, 5)
 texture = ExtResource("5_hwjxs")
 flip_h = true
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PeixeBasico"]
+[node name="peixeAnim" type="AnimationPlayer" parent="peixes"]
+root_node = NodePath("../peixeLeft")
 libraries = {
 &"": SubResource("AnimationLibrary_b26wi")
 }
-autoplay = "Peixe"
+autoplay = "swim"
 
-[node name="Label" type="Label" parent="."]
+[node name="peixePos" type="AnimationPlayer" parent="peixes"]
+root_node = NodePath("../peixeLeft")
+libraries = {
+&"": SubResource("AnimationLibrary_a7jvs")
+}
+autoplay = "position"
+
+[node name="titulo" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -433,7 +574,6 @@ grow_vertical = 2
 theme_override_constants/separation = 24
 
 [node name="inicio" type="Button" parent="VBoxContainer"]
-z_index = 1
 layout_mode = 2
 theme = SubResource("Theme_hwjxs")
 text = "início"
@@ -456,10 +596,13 @@ offset_bottom = 1106.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="animation" type="AnimationPlayer" parent="."]
+[node name="blackscreenAnim" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_et3xt")
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/inicio" to="." method="_on_inicio_pressed"]
+[connection signal="pressed" from="VBoxContainer/creditos" to="." method="_on_creditos_pressed"]
 [connection signal="pressed" from="VBoxContainer/sair" to="." method="_on_sair_pressed"]
