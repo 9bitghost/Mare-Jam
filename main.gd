@@ -25,11 +25,11 @@ func _process(delta: float) -> void:
 		$LeftAlert.position.y = 0
 		
 		$GameOver.position.x = screen_size.x
-		$GameOver.position.y= 0
+		$GameOver.position.y= -100
 		
 		$LifeCounter.position.x = screen_size.x + 860
 		$LifeCounter.position.y = -600
-		$LifeCounter/Label.text = 'Vidas %d' %lives
+		$LifeCounter/Label.text = 'Vidas: %d' %lives
 		
 
 func _on_fish_timer_timeout() -> void:
@@ -78,11 +78,6 @@ func new_game():
 	$LeftAlert.visible = false
 	$LevelMusic.play()
 	
-
-#func _on_fish_lifetime_timer_timeout() -> void:
-	#var fish_to_delete = fishes.pop_front()
-	#remove_child(fish_to_delete)
-	#fish_to_delete.queue_free()
 	
 func _on_fish_offscreen(position: Vector2) -> void:
 		var screen_center_position = $Player/Camera2D.get_screen_center_position()
@@ -112,6 +107,8 @@ func _on_kill_fish(fish: Fish) -> void:
 		if (lives > 0):
 			lives = lives - 1
 		if (lives == 0):
+			#$LevelMusic.stop()
+			$GameOverMusic.play()
 			$GameOver.visible = true
 			get_tree().paused = true
 	

@@ -1,4 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://ch6v70ffwrxrw"]
+[gd_scene load_steps=2 format=3 uid="uid://ch6v70ffwrxrw"]
+
+[ext_resource type="FontFile" uid="uid://bxdf85hubplpk" path="res://Assets/Intro/Fonts/upheavtt.ttf" id="1_1ytir"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,5 +16,6 @@ offset_left = -32.0
 offset_top = -24.0
 offset_right = 114.0
 offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("1_1ytir")
 theme_override_font_sizes/font_size = 50
 text = "Alerta"

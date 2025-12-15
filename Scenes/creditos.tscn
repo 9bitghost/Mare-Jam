@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bes6wwgmd2arw"]
+[gd_scene load_steps=13 format=3 uid="uid://cjkxgo0x6hr03"]
 
 [ext_resource type="FontFile" uid="uid://cydg6dgvr1dyq" path="res://Assets/Intro/Fonts/GrapeSoda.ttf" id="1_eml6v"]
-[ext_resource type="Script" uid="uid://3ggtf3tgyfeg" path="res://Scripts/creditos.gd" id="1_ykkye"]
+[ext_resource type="Script" path="res://Scripts/creditos.gd" id="1_ykkye"]
+[ext_resource type="Texture2D" uid="uid://lkc17uff2qs4" path="res://Assets/Intro/Decor/intro_ground.png" id="3_ompal"]
 
 [sub_resource type="Gradient" id="Gradient_geirw"]
 colors = PackedColorArray(0.10647317, 0.1483694, 0.4752686, 1, 0.32490575, 0.73260707, 0.97421056, 1)
@@ -38,7 +39,7 @@ Button/styles/hover = SubResource("StyleBoxEmpty_hwjxs")
 Button/styles/normal = SubResource("StyleBoxEmpty_geirw")
 Button/styles/pressed = SubResource("StyleBoxEmpty_3bmuq")
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,12 +113,18 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -75.0
-offset_top = -93.0
+offset_top = -218.0
 offset_right = 75.0
-offset_bottom = -33.0
+offset_bottom = -158.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_yyntd")
 text = "voltar"
+
+[node name="IntroGround" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(972, 736)
+scale = Vector2(3.6772983, 2.3466663)
+texture = ExtResource("3_ompal")
 
 [connection signal="pressed" from="voltar" to="." method="_on_voltar_pressed"]

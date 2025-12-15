@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dc5xus8vkj3qt"]
+[gd_scene load_steps=11 format=3 uid="uid://j08h723wtyfj"]
 
 [ext_resource type="Script" uid="uid://u4rckmydbcb8" path="res://Scripts/instrucoes.gd" id="1_j06ar"]
 [ext_resource type="FontFile" uid="uid://bxdf85hubplpk" path="res://Assets/Intro/Fonts/upheavtt.ttf" id="2_j06ar"]
@@ -26,7 +26,43 @@ Panel/styles/panel = SubResource("StyleBoxFlat_i1s5y")
 default_font = ExtResource("2_j06ar")
 default_font_size = 60
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id="Animation_b6uv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g8dlr"]
+resource_name = "transition_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_et3xt"]
+_data = {
+&"RESET": SubResource("Animation_b6uv1"),
+&"transition_out": SubResource("Animation_g8dlr")
+}
+
+[node name="Control2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,9 +111,23 @@ text = "ajude a salvar a vida marinha!
 
 Use WASD para mover
 
-clique nos animais para libertá-los
+clique com o botão esquerdo do mouse quando
+ estiver perto dos animais para libertá-los
 
 
 
 pressione enter para começar"
 horizontal_alignment = 1
+
+[node name="blackscreenAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_et3xt")
+}
+
+[node name="black" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1944.0
+offset_bottom = 1106.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

@@ -8,8 +8,8 @@ radius = 25.0
 height = 154.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
-radius = 35.0
-height = 70.0
+radius = 46.0
+height = 92.0
 
 [sub_resource type="Animation" id="Animation_sweqy"]
 resource_name = "swim"
